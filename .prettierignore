@@ -15,3 +15,5 @@ target/
 
 **/vendor/*
 !**/vendor/*.md
+
+playground-8b71eafaca7c1d43c0149c7860847ed40de550a3/*
