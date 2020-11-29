@@ -8,6 +8,24 @@ name: CI
     branches:
       - trunk
 jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/trunk'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./playground-8b71eafaca7c1d43c0149c7860847ed40de550a3
+          publish_branch: gh-pages
+          cname: rubyconf2019.artichoke.run
+          user_name: artichoke-ci
+          user_email: ci@artichokeruby.org
+
   text:
     name: Lint and format text
     runs-on: ubuntu-latest
