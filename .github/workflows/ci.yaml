@@ -15,6 +15,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Purge vendored CNAME
+        run: rm ./playground-8b71eafaca7c1d43c0149c7860847ed40de550a3/CNAME
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/trunk'
